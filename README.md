@@ -1,4 +1,16 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Final Project 01 Kel.04 - News App
+
+This is The Final Project for Hacktiv8 by Making The News App.
+
+## Team
+
+| Author                    | Nim Hacktiv8  | Role                                |
+| ------------------------- | ------------- | ----------------------------------- |
+| Rachmat Ghaly             | RCTN-KS07-015 | Redux, Consume API & Logic Behavior |
+| Fendy Sanjaya             | RCTN-KS07-002 | Styling Component                   |
+| Kresna yudha bayu saputra | RCTN-KS07-009 | Styling Component                   |
+
+##
 
 ## Getting Started
 
