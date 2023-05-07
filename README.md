@@ -8,7 +8,7 @@ This is The Final Project for Hacktiv8 by Making The News App.
 | ------------------------- | ------------- | ----------------------------------- |
 | Rachmat Ghaly             | RCTN-KS07-015 | Redux, Consume API & Logic Behavior |
 | Fendy Sanjaya             | RCTN-KS07-002 | Styling Component                   |
-| Kresna yudha bayu saputra | RCTN-KS07-009 | Styling Component                   |
+| Kresna yudha bayu saputra | RCTN-KS07-009 | Learning to Style component         |
 
 ##
 
