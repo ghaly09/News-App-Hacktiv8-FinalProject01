@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import { Card } from "@/components/templates/Card";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 
 const poppins = Poppins({
@@ -36,11 +35,7 @@ export default function Home() {
           priority={true}
         />
       </div>
-      {/* <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card /> */}
+      {/* <Card />*/}
     </main>
   );
 }
