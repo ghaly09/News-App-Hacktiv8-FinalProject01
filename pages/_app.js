@@ -1,14 +1,11 @@
-import { Card } from "@/components/templates/Card";
-import { Navbar } from "@/components/templates/Navbar/Navbar";
+import { Layout } from "@/components/templates/Layout/Layout";
 import "@/styles/globals.css";
 
 const App = ({ Component, pageProps }) => {
   return (
-    <>
-      <Navbar />
-      <Card />
+    <Layout>
       <Component {...pageProps} />
-    </>
+    </Layout>
   );
 };
 
