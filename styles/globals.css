@@ -2,23 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-}
-
 @layer components {
-  .navMenu-list {
-    @apply flex flex-row top-[60px] w-[310px] gap-[24px] py-[24px] px-[16px] bg-white;
-  }
-
-  .active {
-    @apply border-b-blue-500;
-  }
-
-  .nav-link {
-    @apply text-base relative hover:font-bold;
-  }
-
-  .center {
-    @apply min-h-[600px] flex justify-center items-center;
+  .ActiveNav {
+    @apply text-blue-500 border-b-4 border-blue-400;
   }
 }
