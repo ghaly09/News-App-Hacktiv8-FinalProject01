@@ -1,8 +1,8 @@
 import React, { ReactNode } from "react";
 
 interface LayoutProps {
-  icon: ReactNode;
-  trendingText: ReactNode;
+  icon: string;
+  trendingText: string;
 }
 
 export const ButtonTrend = (props: LayoutProps) => {
