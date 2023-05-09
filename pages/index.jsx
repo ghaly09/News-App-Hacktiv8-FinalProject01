@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
+import homeImage from "@/assets/images/home.gif";
 
 const poppins = Poppins({
   weight: "400",
@@ -28,7 +29,7 @@ export default function Home() {
         </span>
         <Image
           className="py-8 "
-          src="https://www.kaggle.com/static/images/models/landing_page_header_illustration_light.svg"
+          src={homeImage}
           width={300}
           height={280}
           alt="browsing"
