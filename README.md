@@ -1,8 +1,8 @@
 # Final Project 01 Kel.04 - News App
 
-This is The Final Project for Hacktiv8 by Making The News App.
+This is The Final Project for Hacktiv8 by Making The News App using NEXT.JS
 
-## Team
+## 👨‍💻 Team
 
 | Author                    | Nim Hacktiv8  | Role                                |
 | ------------------------- | ------------- | ----------------------------------- |
@@ -10,7 +10,14 @@ This is The Final Project for Hacktiv8 by Making The News App.
 | Fendy Sanjaya             | RCTN-KS07-002 | Styling Component                   |
 | Kresna yudha bayu saputra | RCTN-KS07-009 | Learning to Style component         |
 
-##
+## 🛠️ Tech Stack & Tools
+
+- Next.Js
+- Redux Toolkit
+- Tailwind CSS
+- TypeScript
+- JavaScript
+- API from https://newsapi.org
 
 ## Getting Started
 
