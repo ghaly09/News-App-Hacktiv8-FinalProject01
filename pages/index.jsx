@@ -1,7 +1,12 @@
+"use client";
+
+import React from "react";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
+import { useSelector, useDispatch } from "react-redux";
+import { increment, decrement } from "@/config/redux/reducers/counterSlice";
 
 const poppins = Poppins({
   weight: "400",
@@ -9,11 +14,15 @@ const poppins = Poppins({
 });
 
 export default function Home() {
+  const count = useSelector((state) => state.counter.count);
+  const dispatch = useDispatch();
+
+  console.log("state global: ", count);
   return (
     <main className={`${poppins.className}`}>
       <div className="flex flex-row items-center gap-80 ">
         <span className=" max-w-md">
-          <h1 className="font-bold text-4xl pb-2">Indonesia News</h1>
+          <h1 className="font-bold text-4xl pb-2">{}Indonesia News</h1>
           <p>
             Search and discover hundreds of News, Up to date info and knowing
             the world in one place.
