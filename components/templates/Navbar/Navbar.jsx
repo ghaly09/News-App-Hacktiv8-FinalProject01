@@ -23,7 +23,7 @@ export const Navbar = () => {
 
   const handle = (event) => {
     if (event.key === "Enter") {
-      router.push(`/${value}`);
+      router.push(`/${value.toLowerCase()}`);
       // console.log("Enter key was pressed");
     }
   };
