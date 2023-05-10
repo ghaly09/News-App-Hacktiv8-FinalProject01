@@ -14,10 +14,10 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const count = useSelector((state) => state.counter.count);
+  const stateGlobal = useSelector((state) => state.storeGlobal);
   const dispatch = useDispatch();
 
-  console.log("state global: ", count);
+  console.log("state global: ", stateGlobal);
   return (
     <main className={`${poppins.className}`}>
       <div className="flex flex-row items-center gap-80 ">
