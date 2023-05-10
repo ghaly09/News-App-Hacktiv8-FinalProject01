@@ -1,4 +1,5 @@
 import { Layout } from "@/components/templates/Layout/Layout";
+import { Providers } from "@/config/redux/provider";
 import "@/styles/globals.css";
 import Head from "next/head";
 
@@ -12,9 +13,11 @@ const App = ({ Component, pageProps }) => {
           content="Final Project Hacktiv8 | NextJS"
         ></meta>
       </Head>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+      <Providers>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+      </Providers>
     </>
   );
 };
