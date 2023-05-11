@@ -4,6 +4,6 @@
 
 @layer components {
   .ActiveNav {
-    @apply text-blue-500 border-b-4 border-blue-400;
+    @apply focus:text-blue-500 focus:border-b-4 focus:border-blue-400;
   }
 }

@@ -1,31 +1,24 @@
-"use client";
-
-import React from "react";
+import { useRouter } from "next/router";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
-import homeImage from "@/assets/images/home.gif";
-import { useSelector, useDispatch } from "react-redux";
-import homeImage from "@/assets/images/home.gif";
-import { useSelector, useDispatch } from "react-redux";
-import { PortraitCards } from "@/components/templates/Card/PortraitCard";
-
 
 const poppins = Poppins({
   weight: "400",
   subsets: ["latin"],
 });
 
-export default function Home() {
-  const stateGlobal = useSelector((state) => state.storeGlobal);
-  const dispatch = useDispatch();
+export default function Category() {
+  const router = useRouter();
+  const { category } = router.query;
 
-  console.log("state global: ", stateGlobal);
   return (
-    <main className={`${poppins.className}`}>
-      <div className="flex flex-col md:flex-row items-center md:gap-80 ">
+    <section className={`${poppins.className}`}>
+      <div className="flex flex-row items-center gap-80 ">
         <span className=" max-w-md">
-          <h1 className="font-bold text-4xl pb-2">{}Indonesia News</h1>
+          <h1 className="capitalize font-bold text-4xl pb-2">
+            {category} News
+          </h1>
           <p>
             Search and discover hundreds of News, Up to date info and knowing
             the world in one place.
@@ -41,7 +34,7 @@ export default function Home() {
         </span>
         <Image
           className="py-8 "
-          src={homeImage}
+          src="https://www.kaggle.com/static/images/models/landing_page_header_illustration_light.svg"
           width={300}
           height={280}
           alt="browsing"
@@ -49,7 +42,6 @@ export default function Home() {
         />
       </div>
       {/* <Card />*/}
-      <PortraitCards />
-    </main>
+    </section>
   );
 }
