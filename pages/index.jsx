@@ -7,6 +7,7 @@ import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
 import { useSelector, useDispatch } from "react-redux";
 import { UPDATE_DATA_CATEGORY } from "@/config/redux/reducers/globalStore";
+import { PortraitCard } from "@/components/templates/Card/PortraitCard";
 
 const poppins = Poppins({
   weight: "400",
@@ -47,6 +48,7 @@ export default function Home() {
         />
       </div>
       {/* <Card />*/}
+      <PortraitCard />
     </main>
   );
 }
