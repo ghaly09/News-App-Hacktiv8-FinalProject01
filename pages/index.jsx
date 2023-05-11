@@ -6,6 +6,7 @@ import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
 import { useSelector, useDispatch } from "react-redux";
+import { UPDATE_DATA_CATEGORY } from "@/config/redux/reducers/globalStore";
 
 const poppins = Poppins({
   weight: "400",
@@ -16,6 +17,7 @@ export default function Home() {
   const stateGlobal = useSelector((state) => state.storeGlobal);
   const dispatch = useDispatch();
 
+  // console.log("state global: ", dispatch(UPDATE_DATA_CATEGORY("ghaly")));
   console.log("state global: ", stateGlobal);
   return (
     <main className={`${poppins.className}`}>

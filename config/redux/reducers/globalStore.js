@@ -12,10 +12,7 @@ export const globalReducer = createSlice({
   initialState: globalStore,
   reducers: {
     UPDATE_DATA_CATEGORY: (state, action) => {
-      return {
-        ...state,
-        dataCategory: action.payload,
-      };
+      state.dataCategory = action.payload;
     },
   },
 });
