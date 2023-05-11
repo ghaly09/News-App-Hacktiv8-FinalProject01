@@ -6,7 +6,6 @@ import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement } from "@/config/redux/reducers/counterSlice";
 
 const poppins = Poppins({
   weight: "400",
@@ -20,7 +19,7 @@ export default function Home() {
   console.log("state global: ", stateGlobal);
   return (
     <main className={`${poppins.className}`}>
-      <div className="flex flex-row items-center gap-80 ">
+      <div className="flex flex-col md:flex-row items-center md:gap-80 ">
         <span className=" max-w-md">
           <h1 className="font-bold text-4xl pb-2">{}Indonesia News</h1>
           <p>

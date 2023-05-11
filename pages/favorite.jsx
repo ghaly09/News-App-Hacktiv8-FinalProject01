@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Poppins } from "next/font/google";
-import { ButtonTrend } from "@/components/atoms/Trend-button";
 import favoriteImage from "@/assets/images/favorite.gif";
 
 const poppins = Poppins({
