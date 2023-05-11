@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< refs/remotes/origin/Fendy
+=======
+    "@reduxjs/toolkit": "^1.9.5",
+    "@tailwindcss/line-clamp": "^0.4.4",
+>>>>>>> local
     "autoprefixer": "10.4.14",
     "next": "13.4.1",
     "postcss": "8.4.23",
