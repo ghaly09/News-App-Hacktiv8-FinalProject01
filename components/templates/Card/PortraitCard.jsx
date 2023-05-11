@@ -1,6 +1,6 @@
 import { TextCard } from "@/components/molecules/TextCard";
 
-export const PortraitCards = () => {
+export const PortraitCard = () => {
     return(
         <section className="container m-auto">
             <div className="border-solid border-2 border-black-600 max-h-[375px] max-w-[200px] lg:max-h-[375px] lg:max-w-[243.25px] rounded-[5px]">

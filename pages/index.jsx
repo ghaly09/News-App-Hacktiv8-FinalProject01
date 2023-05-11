@@ -6,9 +6,7 @@ import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
 import { useSelector, useDispatch } from "react-redux";
-import homeImage from "@/assets/images/home.gif";
-import { useSelector, useDispatch } from "react-redux";
-import { PortraitCards } from "@/components/templates/Card/PortraitCard";
+import { PortraitCard } from "@/components/templates/Card/PortraitCard";
 
 
 const poppins = Poppins({
@@ -49,7 +47,7 @@ export default function Home() {
         />
       </div>
       {/* <Card />*/}
-      <PortraitCards />
+      <PortraitCard />
     </main>
   );
 }
