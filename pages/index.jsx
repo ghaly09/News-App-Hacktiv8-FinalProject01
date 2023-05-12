@@ -1,12 +1,12 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
 import { useSelector, useDispatch } from "react-redux";
-import { UPDATE_DATA_CATEGORY } from "@/config/redux/reducers/globalStore";
+import { getDataIndonesia } from "@/config/redux/reducers/globalStore";
 import { PortraitCard } from "@/components/templates/Card/PortraitCard";
 
 const poppins = Poppins({
@@ -15,11 +15,24 @@ const poppins = Poppins({
 });
 
 export default function Home() {
-  const stateGlobal = useSelector((state) => state.storeGlobal);
+  const stateGlobal = useSelector((state) => {
+    if (
+      state.storeGlobal.dataIndonesia !== "kosong" &&
+      state.storeGlobal.dataIndonesia !== undefined
+    ) {
+      return state.storeGlobal.dataIndonesia;
+    }
+  });
+
   const dispatch = useDispatch();
 
-  // console.log("state global: ", dispatch(UPDATE_DATA_CATEGORY("ghaly")));
-  console.log("state global: ", stateGlobal);
+  // Panggil dataIndonesia
+  useEffect(() => {
+    dispatch(getDataIndonesia());
+  }, [dispatch]);
+
+  console.log("state indonesia: ", stateGlobal && stateGlobal);
+
   return (
     <main className={`${poppins.className}`}>
       <div className="flex flex-col md:flex-row items-center md:gap-80 ">
@@ -48,7 +61,43 @@ export default function Home() {
         />
       </div>
       {/* <Card />*/}
-      <PortraitCard />
+      <div className="flex md:flex-row gap-5 flex-wrap">
+        {stateGlobal !== "kosong" && stateGlobal !== undefined
+          ? stateGlobal.map((dataValue) => (
+              <div>
+                {
+                  <PortraitCard
+                    key={dataValue.source.id}
+                    urlToImage={dataValue.urlToImage}
+                    url={dataValue.url}
+                    sourceName={dataValue.source.name}
+                    title={dataValue.title}
+                    description={dataValue.description}
+                    author={dataValue.author}
+                    publishedAt={dataValue.publishedAt}
+                  />
+                }
+              </div>
+            ))
+          : ""}
+      </div>
     </main>
   );
 }
+
+// export async function getServerSideProps() {
+//   const dispatch = useDispatch();
+//   dispatch(getDataIndonesia());
+//   const stateGlobal = useSelector((state) => {
+//     if (
+//       state.storeGlobal.dataIndonesia !== "kosong" &&
+//       state.storeGlobal.dataIndonesia !== undefined
+//     ) {
+//       return state.storeGlobal.dataIndonesia;
+//     }
+//   });
+
+//   return {
+//     props: { stateGlobal }, // will be passed to the page component as props
+//   };
+// }
