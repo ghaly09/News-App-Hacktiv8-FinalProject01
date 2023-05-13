@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { ButtonTrend } from "@/components/atoms/Trend-button";
 import homeImage from "@/assets/images/home.gif";
+import loadingImage from "@/assets/images/loading.gif";
 import { useSelector, useDispatch } from "react-redux";
 import { getDataIndonesia } from "@/config/redux/reducers/globalStore";
 import { PortraitCard } from "@/components/templates/Card/PortraitCard";
@@ -24,6 +25,8 @@ export default function Home() {
     }
   });
 
+  const stateIsLoading = useSelector((state) => state.storeGlobal.isLoading);
+
   const dispatch = useDispatch();
 
   // Panggil dataIndonesia
@@ -31,13 +34,13 @@ export default function Home() {
     dispatch(getDataIndonesia());
   }, [dispatch]);
 
-  console.log("state indonesia: ", stateGlobal && stateGlobal);
+  // console.log("state indonesia: ", stateGlobal && stateGlobal);
 
   return (
     <main className={`${poppins.className}`}>
       <div className="flex flex-col md:flex-row items-center md:gap-80 ">
         <span className=" max-w-md">
-          <h1 className="font-bold text-4xl pb-2">{}Indonesia News</h1>
+          <h1 className="font-bold text-4xl pb-2">Indonesia News</h1>
           <p>
             Search and discover hundreds of News, Up to date info and knowing
             the world in one place.
@@ -60,8 +63,43 @@ export default function Home() {
           priority={true}
         />
       </div>
-      {/* <Card />*/}
-      <div className="flex md:flex-row gap-5 flex-wrap">
+      {/* isLoading */}
+      {stateIsLoading == true ? (
+        <div className="flex justify-center">
+          <Image
+            className=" text-center"
+            src={loadingImage}
+            width={300}
+            height={300}
+            alt="loading"
+            priority={true}
+          />
+        </div>
+      ) : (
+        <div className="flex md:flex-row gap-5 flex-wrap">
+          {stateGlobal !== "kosong" && stateGlobal !== undefined
+            ? stateGlobal.map((dataValue, id) => (
+                <div>
+                  {
+                    <PortraitCard
+                      key={dataValue.source.id}
+                      id={id}
+                      urlToImage={dataValue.urlToImage}
+                      url={dataValue.url}
+                      sourceName={dataValue.source.name}
+                      title={dataValue.title}
+                      description={dataValue.description}
+                      author={dataValue.author}
+                      publishedAt={dataValue.publishedAt}
+                    />
+                  }
+                </div>
+              ))
+            : ""}
+        </div>
+      )}
+      {/* CARDS */}
+      {/* <div className="flex md:flex-row gap-5 flex-wrap">
         {stateGlobal !== "kosong" && stateGlobal !== undefined
           ? stateGlobal.map((dataValue) => (
               <div>
@@ -80,7 +118,7 @@ export default function Home() {
               </div>
             ))
           : ""}
-      </div>
+      </div> */}
     </main>
   );
 }
