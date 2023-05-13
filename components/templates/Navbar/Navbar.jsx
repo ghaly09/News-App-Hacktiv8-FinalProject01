@@ -4,18 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
-// import { usePathname } from "next/navigation";
 
 const poppins = Poppins({
   weight: "400",
   subsets: ["latin"],
 });
-
-// const NAV_LIST = [
-//   { text: "Home", href: "/" },
-//   { text: "Programming", href: "/programming" },
-//   { text: "Covid-19", href: "/covid" },
-// ];
 
 export const Navbar = () => {
   const [value, setValue] = useState("");
@@ -35,23 +28,7 @@ export const Navbar = () => {
       <Link href={"/"}>
         <Image src={Logo} width={150} height={100} alt="Logo_BEKER" />
       </Link>
-      {/* <div>
-        {NAV_LIST.map((menu, id) => {
-          const isActive = pathname.includes(menu.href[1]);
 
-          return (
-            <Link
-              className={`font-semibold hover:text-blue-500 hover:border-b-4 hover:border-blue-400 px-3 py-4 ${
-                isActive ? "ActiveNav" : ""
-              }`}
-              href={menu.href}
-              key={id}
-            >
-              {menu.text}
-            </Link>
-          );
-        })}
-      </div> */}
       <div>
         <Link
           className={`font-semibold hover:text-blue-500 hover:border-b-4 hover:border-blue-400 px-3 py-4 
@@ -77,10 +54,10 @@ export const Navbar = () => {
       </div>
 
       <div className="flex flex-row items-center">
-        <div className="border-2 py-1 px-2 rounded-full bg-white ">
+        <div className="border-2 py-1 px-2 rounded-full bg-white">
           <i className="fas fa-search relative" aria-hidden="true"></i>
           <input
-            className="py-1 px-2 focus:outline-none relative"
+            className="py-1 px-2 focus:outline-none relative "
             type="text"
             placeholder="Search"
             value={value}
