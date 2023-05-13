@@ -10,6 +10,8 @@ export const PortraitCard = ({
   description,
   author,
   publishedAt,
+  id,
+  saved,
 }) => {
   const src = `${
     urlToImage ??
@@ -20,7 +22,7 @@ export const PortraitCard = ({
     <section className="container w-auto hover:scale-[1.02] hover:duration-300 animate-shadow hover:shadow-lg shadow-sm">
       <div className="border-solid border-2 border-black-600 min-h-[421.5px] max-w-[220px] lg:max-h-[575px] lg:max-w-[320px] rounded-lg hover:shadow-lg shadow-sm">
         <div className="flex flex-col">
-          <Link href={url ?? "/"}>
+          <Link href={url ?? "/"} target="_blank" rel="noreferrer noopener">
             <Image
               className=" object-fill max-w-full h-[160px] rounded-t-lg"
               loader={() => src}
@@ -32,11 +34,15 @@ export const PortraitCard = ({
             />
           </Link>
           <TextCard
+            id={id}
             sourceName={sourceName}
             title={title}
             description={description}
             author={author}
             publishedAt={publishedAt}
+            urlToImage={urlToImage}
+            url={url}
+            saved={saved}
           />
         </div>
       </div>

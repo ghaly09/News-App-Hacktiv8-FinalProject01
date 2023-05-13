@@ -1,20 +1,67 @@
-import { useState } from "react";
+import {
+  REMOVE_FAVORITE,
+  UPDATE_FAVORITE,
+} from "@/config/redux/reducers/favoriteStore";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 export const TextCard = ({
+  urlToImage,
+  url,
   sourceName,
   title,
   description,
   author,
   publishedAt,
+  id,
+  saved,
 }) => {
   const [love, setLove] = useState("fa-regular fa-heart");
+
+  const dispatch = useDispatch();
+
   const handleButtonLove = () => {
-    if (love == "fa-regular fa-heart") {
+    if (
+      (love == "fa-regular fa-heart" && saved == "fa-regular fa-heart") ||
+      love == "fa-regular fa-heart" ||
+      saved == undefined
+    ) {
       setLove(`fas fa-heart text-red-500`);
       // Save to Favorite
-    } else if (love == `fas fa-heart text-red-500`) {
+      dispatch(
+        UPDATE_FAVORITE({
+          id: id,
+          urlToImage: urlToImage,
+          url: url,
+          sourceName: sourceName,
+          author: author,
+          title: title,
+          description: description,
+          publishedAt,
+          saved: `fas fa-heart text-red-500`,
+        })
+      );
+
+      // console.log("favorites: ", favoriteSaved);
+    } else if (
+      love == `fas fa-heart text-red-500` ||
+      saved == `fas fa-heart text-red-500`
+    ) {
       setLove("fa-regular fa-heart");
       // Detele Saved Favorite
+      // dispatch(
+      //   REMOVE_FAVORITE({
+      //     id: id,
+      //     urlToImage: urlToImage,
+      //     url: url,
+      //     sourceName: sourceName,
+      //     author: author,
+      //     title: title,
+      //     description: description,
+      //     publishedAt,
+      //     saved: `fas fa-heart text-red-500`,
+      //   })
+      // );
     }
   };
 
@@ -55,12 +102,14 @@ export const TextCard = ({
             {author ?? "Anonymous"}
           </p>
           <p className="truncate text-[#828282] text-[10px] max-w-[15em]">
-            {date ?? "Time Flies"} &bull; 100 min read
+            {date ?? "Time Flies"} &bull; 10 min read
           </p>
         </div>
         <span className="w-full text-end ">
           <i
-            className={`${love} text-2xl cursor-pointer hover:scale-125 active:scale-[0.9] hover:duration-200 p-1`}
+            className={`${
+              love !== saved ? love : saved
+            } text-2xl cursor-pointer hover:scale-125 active:scale-[0.9] hover:duration-200 p-1`}
             aria-hidden="true"
             onClick={handleButtonLove}
           ></i>
