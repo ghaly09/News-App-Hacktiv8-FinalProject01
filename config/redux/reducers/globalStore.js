@@ -3,20 +3,25 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const date = new Date();
+let currentDate = `${date.getFullYear()}-${
+  "0" + (date.getMonth() + 1)
+}-${date.getDate()}`;
+let oneMouthPastDate = `${date.getFullYear()}-${
+  "0" + date.getMonth()
+}-${date.getDate()}`;
+
+// console.log(oneMouthPastDate);
+
 const globalStore = {
-  dataCategory: [],
   dataIndonesia: "kosong",
-  favorites: [],
   isLoading: false,
 };
 
 export const globalReducer = createSlice({
-  name: "category",
+  name: "indonesia",
   initialState: globalStore,
   reducers: {
-    UPDATE_DATA_CATEGORY: (state, action) => {
-      state.dataCategory = action.payload;
-    },
     UPDATE_DATA_INDONESIA: (state, action) => {
       state.dataIndonesia = action.payload;
     },
@@ -31,6 +36,7 @@ export const globalReducer = createSlice({
       })
       .addCase(getDataIndonesia.fulfilled, (state, action) => {
         state.dataIndonesia = action.payload;
+        state.isLoading = false;
       })
       .addCase(getDataIndonesia.rejected, () => {
         console.log("getAPI gagal");
@@ -38,22 +44,17 @@ export const globalReducer = createSlice({
   },
 });
 
-export const {
-  UPDATE_DATA_CATEGORY,
-  UPDATE_DATA_INDONESIA,
-  UPDATE_DATA_FAVORITE,
-} = globalReducer.actions;
+export const { UPDATE_DATA_INDONESIA, UPDATE_DATA_FAVORITE } =
+  globalReducer.actions;
 
 export default globalReducer.reducer;
 
 export const getDataIndonesia = createAsyncThunk(
   "dataIndonesia/getDataIndonesia",
-  async (codeIndonesia) => {
+  async () => {
     try {
       const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=${
-          codeIndonesia ?? "indonesia"
-        }&from=2023-04-11&to=2023-05-11&sortBy=popularity&apiKey=eb23dff920014345abbb26601b67d874`
+        `https://newsapi.org/v2/everything?q=indonesia&from=${oneMouthPastDate}&to=${currentDate}&sortBy=popularity&apiKey=eb23dff920014345abbb26601b67d874`
       );
       // console.log(res);
       return res.data.articles;
