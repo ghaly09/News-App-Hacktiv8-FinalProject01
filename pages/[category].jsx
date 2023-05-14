@@ -88,11 +88,12 @@ export default function Category() {
         //  CARDS
         <div className="flex md:flex-row gap-5 flex-wrap">
           {stateCategory !== "kosong" && stateCategory !== undefined
-            ? stateCategory.map((dataValue) => (
+            ? stateCategory.map((dataValue, id) => (
                 <div>
                   {
                     <PortraitCard
-                      key={dataValue.source.id}
+                      key={id}
+                      id={dataValue.title}
                       urlToImage={dataValue.urlToImage}
                       url={dataValue.url}
                       sourceName={dataValue.source.name}
