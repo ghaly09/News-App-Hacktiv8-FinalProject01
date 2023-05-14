@@ -76,14 +76,15 @@ export default function Home() {
           />
         </div>
       ) : (
+        // CARDS
         <div className="flex md:flex-row gap-5 flex-wrap">
           {stateGlobal !== "kosong" && stateGlobal !== undefined
             ? stateGlobal.map((dataValue, id) => (
                 <div>
                   {
                     <PortraitCard
-                      key={dataValue.source.id}
-                      id={id}
+                      key={id}
+                      id={dataValue.title}
                       urlToImage={dataValue.urlToImage}
                       url={dataValue.url}
                       sourceName={dataValue.source.name}
@@ -98,27 +99,6 @@ export default function Home() {
             : ""}
         </div>
       )}
-      {/* CARDS */}
-      {/* <div className="flex md:flex-row gap-5 flex-wrap">
-        {stateGlobal !== "kosong" && stateGlobal !== undefined
-          ? stateGlobal.map((dataValue) => (
-              <div>
-                {
-                  <PortraitCard
-                    key={dataValue.source.id}
-                    urlToImage={dataValue.urlToImage}
-                    url={dataValue.url}
-                    sourceName={dataValue.source.name}
-                    title={dataValue.title}
-                    description={dataValue.description}
-                    author={dataValue.author}
-                    publishedAt={dataValue.publishedAt}
-                  />
-                }
-              </div>
-            ))
-          : ""}
-      </div> */}
     </main>
   );
 }
