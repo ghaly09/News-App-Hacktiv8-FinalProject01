@@ -38,7 +38,7 @@ export default function Home() {
 
   return (
     <main className={`${poppins.className}`}>
-      <div className="flex flex-col md:flex-row items-center md:gap-80 ">
+      <div className="flex flex-col lg:flex-row items-center lg:gap-80 pt-8 lg:pt-0">
         <span className=" max-w-md">
           <h1 className="font-bold text-4xl pb-2">Indonesia News</h1>
           <p>
@@ -77,7 +77,7 @@ export default function Home() {
         </div>
       ) : (
         // CARDS
-        <div className="flex md:flex-row gap-5 flex-wrap">
+        <div className="flex flex-col md:flex-row gap-5 items-center sm:justify-center flex-wrap">
           {stateGlobal !== "kosong" && stateGlobal !== undefined
             ? stateGlobal.map((dataValue, id) => (
                 <div>
