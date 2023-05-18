@@ -54,7 +54,7 @@ export const getDataIndonesia = createAsyncThunk(
   async () => {
     try {
       const res = await axios.get(
-        `https://newsapi.org/v2/everything?q=indonesia&from=${oneMouthPastDate}&to=${currentDate}&sortBy=popularity&apiKey=eb23dff920014345abbb26601b67d874`
+        `https://newsapi.org/v2/top-headlines?country=id&from=${oneMouthPastDate}&to=${currentDate}&sortBy=popularity&apiKey=eb23dff920014345abbb26601b67d874`
       );
       // console.log(res);
       return res.data.articles;

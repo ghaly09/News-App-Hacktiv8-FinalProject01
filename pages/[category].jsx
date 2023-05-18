@@ -44,7 +44,7 @@ export default function Category() {
 
   return (
     <section className={`${poppins.className}`}>
-      <div className="flex flex-row items-center gap-80 ">
+      <div className="flex flex-col lg:flex-row items-center lg:gap-80 pt-8 lg:pt-0">
         <span className=" max-w-md">
           <h1 className="capitalize font-bold text-4xl pb-2">
             {category} News
@@ -86,13 +86,14 @@ export default function Category() {
         </div>
       ) : (
         //  CARDS
-        <div className="flex md:flex-row gap-5 flex-wrap">
+        <div className="flex flex-col md:flex-row gap-5 items-center sm:justify-center flex-wrap">
           {stateCategory !== "kosong" && stateCategory !== undefined
-            ? stateCategory.map((dataValue) => (
+            ? stateCategory.map((dataValue, id) => (
                 <div>
                   {
                     <PortraitCard
-                      key={dataValue.source.id}
+                      key={id}
+                      id={dataValue.title}
                       urlToImage={dataValue.urlToImage}
                       url={dataValue.url}
                       sourceName={dataValue.source.name}

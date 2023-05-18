@@ -3,7 +3,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const favoriteStore = {
-  favorites: [],
+  favorites: {},
 };
 
 export const favoriteReducer = createSlice({
@@ -11,22 +11,13 @@ export const favoriteReducer = createSlice({
   initialState: favoriteStore,
   reducers: {
     UPDATE_FAVORITE: (state, action) => {
-      state.favorites.includes(action.payload)
-        ? true
-        : state.favorites.push(action.payload);
-      // const iterator = state.favorites.values();
-      // for (const value of iterator) {
-      //   if (value != action.payload) {
-      //     state.favorites.push(action.payload);
-      //   }
-      // }
+      let id = action.payload.id;
+      action.payload.saved = `fas fa-heart text-red-500`;
+      state.favorites[id] = action.payload;
     },
     REMOVE_FAVORITE: (state, action) => {
-      // state.favorites.filter((value, index) => {
-      //   if (value.sourceName === action.payload.sourceName) {
-      //     return state.favorites.slice(index);
-      //   }
-      // });
+      let id = action.payload.id;
+      delete state.favorites[id];
     },
   },
 });

@@ -2,8 +2,8 @@ import {
   REMOVE_FAVORITE,
   UPDATE_FAVORITE,
 } from "@/config/redux/reducers/favoriteStore";
-import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export const TextCard = ({
   urlToImage,
@@ -17,15 +17,17 @@ export const TextCard = ({
   saved,
 }) => {
   const [love, setLove] = useState("fa-regular fa-heart");
+  const stateFavorite = useSelector((state) => state.storeFavorite.favorites);
+
+  let arraySaved = Object.keys(stateFavorite);
+  let hasSaved = arraySaved.includes(id);
 
   const dispatch = useDispatch();
 
+  // console.log("data favorite uy: ", hasSaved);
+
   const handleButtonLove = () => {
-    if (
-      (love == "fa-regular fa-heart" && saved == "fa-regular fa-heart") ||
-      love == "fa-regular fa-heart" ||
-      saved == undefined
-    ) {
+    if (love == "fa-regular fa-heart" && !saved) {
       setLove(`fas fa-heart text-red-500`);
       // Save to Favorite
       dispatch(
@@ -38,30 +40,30 @@ export const TextCard = ({
           title: title,
           description: description,
           publishedAt,
-          saved: `fas fa-heart text-red-500`,
+          saved: love,
         })
       );
 
       // console.log("favorites: ", favoriteSaved);
     } else if (
       love == `fas fa-heart text-red-500` ||
-      saved == `fas fa-heart text-red-500`
+      saved == "fas fa-heart text-red-500"
     ) {
       setLove("fa-regular fa-heart");
       // Detele Saved Favorite
-      // dispatch(
-      //   REMOVE_FAVORITE({
-      //     id: id,
-      //     urlToImage: urlToImage,
-      //     url: url,
-      //     sourceName: sourceName,
-      //     author: author,
-      //     title: title,
-      //     description: description,
-      //     publishedAt,
-      //     saved: `fas fa-heart text-red-500`,
-      //   })
-      // );
+      dispatch(
+        REMOVE_FAVORITE({
+          id: id,
+          urlToImage: urlToImage,
+          url: url,
+          sourceName: sourceName,
+          author: author,
+          title: title,
+          description: description,
+          publishedAt,
+          saved: love,
+        })
+      );
     }
   };
 
@@ -108,7 +110,7 @@ export const TextCard = ({
         <span className="w-full text-end ">
           <i
             className={`${
-              love !== saved ? love : saved
+              saved || hasSaved == true ? "fas fa-heart text-red-500" : love
             } text-2xl cursor-pointer hover:scale-125 active:scale-[0.9] hover:duration-200 p-1`}
             aria-hidden="true"
             onClick={handleButtonLove}
