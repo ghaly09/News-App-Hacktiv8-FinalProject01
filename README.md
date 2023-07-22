@@ -14,8 +14,7 @@ This is The Final Project for Hacktiv8 by Making The News App using NEXT.JS
 
 Click Play to Preview:
 
-[<video src="https://res.cloudinary.com/druckyjuu/video/upload/v1690047781/Projects/BEKER-NewsApp_uoxozw.webm" autoplay loop muted playsinline style="max-width: 1080px;">
-</video>](https://res.cloudinary.com/druckyjuu/video/upload/v1690047781/Projects/BEKER-NewsApp_uoxozw.webm)
+[BEKER-NewsApp_1.webm](https://github.com/FinalProject01-Kel-4-Hacktiv8/FP01-Kel04-news-app/assets/60167960/ae499689-c21f-43f7-a136-d27733adf83d)
 
 ## 🛠️ Tech Stack & Tools
 
