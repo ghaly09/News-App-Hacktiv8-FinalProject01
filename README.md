@@ -10,6 +10,12 @@ This is The Final Project for Hacktiv8 by Making The News App using NEXT.JS
 | Fendy Sanjaya             | RCTN-KS07-002 | Styling Component                   |
 | Kresna yudha bayu saputra | RCTN-KS07-009 | Learning to Style component         |
 
+## 🛠️ The Result Preview
+
+Click Play to Preview:
+
+[BEKER-NewsApp_1.webm](https://github.com/FinalProject01-Kel-4-Hacktiv8/FP01-Kel04-news-app/assets/60167960/ae499689-c21f-43f7-a136-d27733adf83d)
+
 ## 🛠️ Tech Stack & Tools
 
 - Next.Js
